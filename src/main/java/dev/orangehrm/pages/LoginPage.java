@@ -1,4 +1,6 @@
 package dev.orangehrm.pages;
 
-public class LoginPage {
+import dev.orangehrm.base.BasePage;
+
+public class LoginPage extends BasePage {
 }
