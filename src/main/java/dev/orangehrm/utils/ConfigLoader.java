@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigLoader {
     private static ConfigLoader configLoader;
-    private Properties properties;
+    private final Properties properties;
 
     private ConfigLoader() {
         properties = new Properties();
