@@ -19,16 +19,16 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT));
     }
 
-    public WebElement waitUntilElementIsClickable(By locator){
+    public WebElement waitUntilElementIsClickable(By locator) {
         return element = wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public void click(By locator){
+    public void click(By locator) {
         element = waitUntilElementIsClickable(locator);
         element.click();
     }
 
-    public void setText(By locator, String text){
+    public void setText(By locator, String text) {
         element = waitUntilElementIsClickable(locator);
         element.clear();
         element.sendKeys(text);

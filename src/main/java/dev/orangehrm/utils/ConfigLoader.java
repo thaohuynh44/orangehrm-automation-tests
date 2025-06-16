@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigLoader {
     private static ConfigLoader configLoader;
-    private final Properties properties;
+    private static Properties properties;
 
     private ConfigLoader() {
         properties = new Properties();
@@ -25,7 +25,7 @@ public class ConfigLoader {
         return configLoader;
     }
 
-    public String getProperty (String propertyName){
+    public static String getProperty(String propertyName) {
         return properties.getProperty(propertyName);
     }
 }
