@@ -18,7 +18,6 @@ public class BaseTest {
     @BeforeTest
     public void setUp() {
         driver.manage().window().maximize();
-        driver.get(ConfigLoader.getProperty("LOGIN_EP"));
     }
 
     @AfterTest

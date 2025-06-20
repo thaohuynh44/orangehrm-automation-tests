@@ -2,6 +2,7 @@ package dev.orangehrm.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigLoader {
@@ -10,11 +11,13 @@ public class ConfigLoader {
 
     private ConfigLoader() {
         properties = new Properties();
-        try {
-            FileInputStream input = new FileInputStream("D:\\HKV\\orangehrm-automation-tests\\src\\test\\resources\\dev_config.properties");
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("dev_config.properties")) {
+            if (input == null) {
+                throw new RuntimeException("config.properties not found in classpath");
+            }
             properties.load(input);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load config.properties", e);
         }
     }
 
